@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sven Eelbode - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #764ba2;
+        }
+        
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid #667eea;
+            z-index: 1;
+        }
+        
+        .timeline-education::before { border-color: #667eea; }
+        .timeline-research::before { border-color: #28a745; }
+        .timeline-business::before { border-color: #ffc107; }
+        .timeline-work::before { border-color: #dc3545; }
+        
+        .timeline-date {
+            font-size: 0.9em;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-org {
+            font-size: 1em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-desc {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .timeline-desc ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .timeline-desc li {
+            margin-bottom: 5px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+        
+        .badge-green { background: #28a745; }
+        .badge-yellow { background: #ffc107; color: #333; }
+        .badge-red { background: #dc3545; }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 5px 0;
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .skill-category li::before {
+            content: '▸ ';
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .education-title {
+            font-size: 1.3em;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .education-institution {
+            color: #667eea;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        
+        .education-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .education-details {
+            margin-top: 10px;
+            color: #555;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .achievement {
+            background: linear-gradient(135deg, #ffc107 0%, #ff6b6b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+        }
+        
+        .achievement-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .languages {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .language-item {
+            background: #f8f9fa;
+            padding: 15px 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .language-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .language-level {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid;
+        }
+        
+        .legend-education { border-color: #667eea; }
+        .legend-research { border-color: #28a745; }
+        .legend-business { border-color: #ffc107; }
+        .legend-work { border-color: #dc3545; }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; }
+            .timeline-item:hover { transform: none; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .header { padding: 40px 20px; }
+            .content { padding: 20px; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>SVEN EELBODE</h1>
+                <div class="tagline">Biochemist & Biotechnologist | Researcher | Entrepreneur</div>
+                <div class="contact-info">
+                    <div class="contact-item">📧 sveneelbode@gmail.com</div>
+                    <div class="contact-item">📱 +32 489/82 64 49</div>
+                    <div class="contact-item">📍 Aalst, Belgium</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">About Me</h2>
+                <div class="summary">
+                    Motivated biochemist and biotechnologist (MSc) with a strong foundation in plant molecular biology, structural biology, and biochemistry. Experienced in CRISPR-based gene editing, metabolite profiling, and protein interaction assays. Combines rigorous scientific training with a background in the liberal arts. Has hands-on leadership, entrepreneurial experience, and problem-solving skills gained through running a construction business and leading small technical teams. Eager to apply analytical expertise, adaptability, and creative thinking to research and innovation in biotechnology or academia.
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="education-title">Master of Science in Biochemistry and Biotechnology</div>
+                    <div class="education-institution">Ghent University, Belgium</div>
+                    <div class="education-date">September 2022 – July 2025</div>
+                    <div class="education-date">Magna Cum Laude</div>
+                    <div class="education-details">
+                        <strong>Major:</strong> Plant Biotechnology<br>
+                        <strong>Minor:</strong> Structural Biology
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-title">Professional Bachelor in Chemistry - Biochemistry</div>
+                    <div class="education-institution">Hogeschool Gent (Ghent University College)</div>
+                    <div class="education-date">September 2017 – July 2021</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-title">Secondary Education – Liberal Arts</div>
+                    <div class="education-institution">Belgium</div>
+                    <div class="education-date">Graduated 2015</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Career Timeline</h2>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot legend-education"></div>
+                        <span>Education</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-research"></div>
+                        <span>Research</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-business"></div>
+                        <span>Business</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot legend-work"></div>
+                        <span>Work Experience</span>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item timeline-research">
+                        <div class="timeline-date">July – August 2025</div>
+                        <div class="timeline-title">Research Assistant (Student Position)</div>
+                        <div class="timeline-org">KU Leuven – Plant Health and Protection Laboratory</div>
+                        <div class="timeline-desc">
+                            Supervisor: Prof. Barbara De Coninck
+                            <ul>
+                                <li>Conducted microbial phenotyping and characterization of environmental isolates</li>
+                                <li>Performed 16S rRNA gene sequencing for bacterial identification</li>
+                                <li>Executed qPCR protocols and molecular cloning for Agrobacterium rhizogenes constructs</li>
+                                <li>Processed environmental samples through extensive plating and aseptic culture techniques</li>
+                            </ul>
+                            <span class="badge badge-green">Microbiology</span>
+                            <span class="badge badge-green">16S rRNA</span>
+                            <span class="badge badge-green">qPCR</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-research">
+                        <div class="timeline-date">September 2024 – June 2025</div>
+                        <div class="timeline-title">Master's Thesis</div>
+                        <div class="timeline-org">Ghent University – Functional Plant Biology Laboratory</div>
+                        <div class="timeline-desc">
+                            Supervisor: Prof. Dominique Van Der Straeten | <strong>Grade: 16/20</strong><br>
+                            <em>"Phenotypic and Biochemical Effects of ACC-N-Malonyl Transferase (AMT) Knockout in Higher Plants"</em>
+                            <ul>
+                                <li>Designed and executed CRISPR-based gene knockout studies in higher plants</li>
+                                <li>Performed micropropagation and plant tissue culture to generate transgenic lines</li>
+                                <li>Conducted targeted metabolite quantification using HPLC-MS</li>
+                            </ul>
+                            <span class="badge badge-green">CRISPR</span>
+                            <span class="badge badge-green">HPLC-MS</span>
+                            <span class="badge badge-green">Plant Biotech</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-research">
+                        <div class="timeline-date">Academic Year 2023–2024</div>
+                        <div class="timeline-title">Research Internships (2x 3 weeks)</div>
+                        <div class="timeline-org">VIB-UGent Plant Systems Biology</div>
+                        <div class="timeline-desc">
+                            <strong>Rhizosphere Lab (Prof. Sofie Goormachtig):</strong>
+                            <ul>
+                                <li>Studied symbiotic interactions between plants and arbuscular mycorrhizal fungi</li>
+                                <li>Performed hairy root transformation, GreenGate cloning, RNA extraction, qPCR</li>
+                            </ul>
+                            <strong>Functional Interactomics Lab (Prof. Geert De Jaeger):</strong>
+                            <ul>
+                                <li>Analyzed protein-protein interactions using CLSM, co-IP, Western blotting</li>
+                                <li>Focused on phosphorylation-dependent interactions of SnRK1 kinase subunits</li>
+                            </ul>
+                            <span class="badge badge-green">Protein Interactions</span>
+                            <span class="badge badge-green">Microscopy</span>
+                            <span class="badge badge-green">Symbiosis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-research">
+                        <div class="timeline-date">Academic Year 2020–2021</div>
+                        <div class="timeline-title">Bachelor's Thesis</div>
+                        <div class="timeline-org">Ghent University – Department of Plants and Crops</div>
+                        <div class="timeline-desc">
+                            Supervisor: Prof. Stefaan Werbrouck<br>
+                            <em>"Eliciting Different Root Cultures for Enhanced Resveratrol Production in Arachis hypogaea"</em>
+                            <ul>
+                                <li>Optimized hairy root and adventitious root cultures for resveratrol production</li>
+                                <li>Conducted Agrobacterium rhizogenes-mediated transformation protocols</li>
+                                <li>Developed auxin-induced root development strategies</li>
+
+                                <li>Designed and cloned multiple vectors for rhizogenic agrobacteria</li>
+                            </ul>
+                            <span class="badge badge-green">Tissue Culture</span>
+                            <span class="badge badge-green">Transformation</span>
+                            <span class="badge badge-green">Cloning</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-business">
+                        <div class="timeline-date">2021 – 2025</div>
+                        <div class="timeline-title">Founder & Managing Director</div>
+                        <div class="timeline-org">Eelbode Solutions (Self-Employed) | BE 0786.244.782</div>
+                        <div class="timeline-desc">
+                            Construction company specializing in carpentry, landscaping, and maintenance
+                            <ul>
+                                <li>Generated €15,000-20,000 annual revenue while studying full-time (3 days of work/week)</li>
+                                <li>Led project teams of up to 4 people for roofing and construction operations</li>
+                                <li>Managed complete business operations: client acquisition, project execution, accounting</li>
+                                <li>Developed problem-solving, precision work, and deadline management skills</li>
+                            </ul>
+                            <span class="badge badge-yellow">Entrepreneurship</span>
+                            <span class="badge badge-yellow">Team Leadership</span>
+                            <span class="badge badge-yellow">Project Management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-work">
+                        <div class="timeline-date">September 2019 – December 2022</div>
+                        <div class="timeline-title">Croupier at Business Events</div>
+                        <div class="timeline-org">Crazzle Casino Events</div>
+                        <div class="timeline-desc">
+                            Working in a fast paced environment to professional standards
+
+                            <span class="badge badge-red">Professionalism</span>
+                            <span class="badge badge-red">Stress management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-work">
+                        <div class="timeline-date">2017 – 2020</div>
+                        <div class="timeline-title">Order Picker</div>
+                        <div class="timeline-org">Kris De Leeneer</div>
+                        <div class="timeline-desc">
+                            Long term engagement as order picker/warehouse staff in large logistics company
+
+                            <span class="badge badge-red">Team player</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-achievement">
+                        <div class="timeline-date">Summer 2018</div>
+                        <div class="achievement">
+                            <div class="achievement-title">🏆 1st Place – Summer Challenge 2018</div>
+                            Industrial problem-solving competition testing practical skills, technical knowledge, and innovative thinking
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-work">
+                        <div class="timeline-date">January – March 2017</div>
+                        <div class="timeline-title">Kitchen Staff</div>
+                        <div class="timeline-org">La Bergerie du Soleil | Saint-François-Longchamp, France</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Rapidly advanced from dishwasher to kitchen aide to waiter within 2 months</li>
+                                <li>Demonstrated quick learning and adaptability in international, fast-paced environment</li>
+                            </ul>
+                            <span class="badge badge-red">Hospitality</span>
+                            <span class="badge badge-red">Fast Advancement</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-work">
+                        <div class="timeline-date">October 2016 – March 2017</div>
+                        <div class="timeline-title">Custodian</div>
+                        <div class="timeline-org">Sundio Group | Saint-François-Longchamp, France</div>
+                        <div class="timeline-desc">
+                            Maintained facility operations in French Alps resort while working concurrent position in hospitality
+                            <span class="badge badge-red">Facility Management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item timeline-work">
+                        <div class="timeline-date">March – September 2016</div>
+                        <div class="timeline-title">Team Captain (B2C Sales)</div>
+                        <div class="timeline-org">Activate | Ghent, Belgium</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Promoted to captain in door-to-door sales division based on performance</li>
+                                <li>Trained and mentored new sales recruits</li>
+                                <li>Led field sales teams, coordinating daily operations</li>
+                            </ul>
+                            <span class="badge badge-red">Sales Leadership</span>
+                            <span class="badge badge-red">Training</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Molecular Biology & Genetic Engineering</h4>
+                        <ul>
+                            <li>CRISPR gene editing</li>
+                            <li>Agrobacterium-mediated transformation</li>
+                            <li>GreenGate cloning</li>
+                            <li>RNA extraction & qPCR</li>
+                            <li>Colony PCR</li>
+                            <li>16S rRNA sequencing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Plant Biotechnology</h4>
+                        <ul>
+                            <li>Plant tissue culture</li>
+                            <li>Micropropagation</li>
+                            <li>Hairy root transformation</li>
+                            <li>Root culture optimization</li>
+                            <li>Phenotypic characterization</li>
+                            <li>Symbiosis studies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Protein Biochemistry</h4>
+                        <ul>
+                            <li>Co-immunoprecipitation</li>
+                            <li>Western blotting</li>
+                            <li>Magnetic affinity purification</li>
+                            <li>Protein-protein interaction analysis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Analytical Techniques</h4>
+                        <ul>
+                            <li>HPLC-MS (targeted metabolomics)</li>
+                            <li>Confocal laser scanning microscopy</li>
+                            <li>Microscopy-based phenotyping</li>
+                            <li>Microbial phenotyping</li>
+                            <li>Aseptic technique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Bioinformatics & Data Analysis</h4>
+                        <ul>
+                            <li>Bio-informatics</li>
+                            <li>Structural bio-informatics</li>
+                            <li>Biostatistics</li>
+                            <li>Proteome analysis</li>
+                            <li>Functional genomics</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Business & Management</h4>
+                        <ul>
+                            <li>Financial accounting</li>
+                            <li>Project management</li>
+                            <li>Team leadership</li>
+                            <li>Client relations</li>
+                            <li>Resource management</li>
+                            <li>Problem-solving under pressure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Languages</h2>
+                <div class="languages">
+                    <div class="language-item">
+                        <div class="language-name">Dutch</div>
+                        <div class="language-level">Native</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">English</div>
+                        <div class="language-level">Fluent (Professional)</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">French</div>
+                        <div class="language-level">Fluent spoken</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
